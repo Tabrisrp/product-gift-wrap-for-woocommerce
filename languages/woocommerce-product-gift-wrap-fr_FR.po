@@ -1,0 +1,102 @@
+# Copyright (C) 2014 WooCommerce Product Gift Wrap
+# This file is distributed under the same license as the WooCommerce Product Gift Wrap package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Product Gift Wrap 1.1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/woocommerce-product-gift-wrap\n"
+"POT-Creation-Date: 2015-04-18 22:49+0100\n"
+"PO-Revision-Date: 2015-04-18 22:50+0100\n"
+"Last-Translator: Rémy Perona <remperona@gmail.com>\n"
+"Language-Team: Remy Perona <remperona@gmail.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /Users/Yui/Downloads/woocommerce-product-gift-wrap\n"
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:31
+#, php-format
+msgid "Gift wrap this item for %s?"
+msgstr "Emballage cadeau pour %s ?"
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:47
+msgid "Gift Wrapping Enabled by Default?"
+msgstr "Emballage cadeau activé par défaut ?"
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:48
+msgid "Enable this to allow gift wrapping for products by default."
+msgstr ""
+"Activez cette option pour permettre par défaut d'afficher l'emballage cadeau pour tous les "
+"produits "
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:53
+msgid "Default Gift Wrap Cost"
+msgstr "Prix par défaut de l'emballage cadeau"
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:54
+msgid "The cost of gift wrap unless overridden per-product."
+msgstr "Le prix de l'emballage cadeau, sauf si défini sur le produit."
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:60
+msgid "Gift Wrap Message"
+msgstr "Message pour l'emballage cadeau"
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:62
+msgid "Note: <code>{price}</code> will be replaced with the gift wrap cost."
+msgstr "Note : <code>{price}</code> sera remplacé par le prix de l'emballage cadeau."
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:64
+msgid "Label shown to the user on the frontend."
+msgstr "Le label du champ à afficher au client sur le site."
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:122
+msgid "free"
+msgstr "Gratuit"
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:190
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:230
+msgid "Gift Wrapped"
+msgstr "Emballage cadeau"
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:191
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:192
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:230
+msgid "Yes"
+msgstr "Oui"
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:255
+msgid "Gift Wrappable"
+msgstr "Emballage cadeau disponible"
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:256
+msgid "Enable this option if the customer can choose gift wrapping."
+msgstr "Activez cette option si le client peut choisir l'emballage cadeau."
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:261
+msgid "Gift Wrap Cost"
+msgstr "Prix de l'emballage cadeau"
+
+#: /Users/Yui/Downloads/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:264
+msgid "Override the default cost by inputting a cost here."
+msgstr "Remplacez la valeur par défaut en entrant un prix ici."
+
+#~ msgid "WooCommerce Product Gift Wrap"
+#~ msgstr "WooCommerce Emballage cadeau des produits"
+
+#~ msgid "https://github.com/mikejolley/woocommerce-product-gift-wrap"
+#~ msgstr "https://github.com/mikejolley/woocommerce-product-gift-wrap"
+
+#~ msgid "Add an option to your products to enable gift wrapping. Optionally charge a fee."
+#~ msgstr ""
+#~ "Ajoute une option pour l'emballage cadeau de vos produits. Possibilité de définir un coût."
+
+#~ msgid "Mike Jolley"
+#~ msgstr "Mike Jolley"
+
+#~ msgid "http://mikejolley.com"
+#~ msgstr "http://mikejolley.com"

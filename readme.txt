@@ -1,9 +1,9 @@
-=== WooCommerce Product Gift Wrap ===
-Contributors: mikejolley
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mike.jolley@me.com&currency_code=&amount=&return=&item_name=Donation+for+WooCommerce+Product+Gift+Wrap
+=== WooCommerce Product Gift Wrap Reloaded ===
+Contributors: tabrisrp
+Donate link: 
 Tags: woocommerce, product, gift wrap
 Requires at least: 3.5
-Tested up to: 3.5
+Tested up to: 4.2
 Stable tag: 1.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -18,7 +18,7 @@ WooCommerce > Settings lets you set up the default gift-wrappable status per-pro
 
 If the customer adds gift wrap, it is shown in cart + orders, and adds your defined cost to the item cost too.
 
-If you'd like to contribute to the plugin you can find it on GitHub: [https://github.com/mikejolley/woocommerce-product-gift-wrap](https://github.com/mikejolley/woocommerce-product-gift-wrap)
+
 
 == Installation ==
 
