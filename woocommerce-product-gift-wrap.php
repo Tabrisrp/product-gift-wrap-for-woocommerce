@@ -10,10 +10,10 @@ Requires at least: 3.5
 Tested up to: 4.2
 Text Domain: woocommerce-product-gift-wrap
 Domain Path: /languages/
-
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Original Author: Mike Jolley
-License: GNU General Public License v3.0
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -38,7 +38,11 @@ class WC_Product_Gift_Wrap {
 	 * @var object
 	 */
 	protected static $instance = null;
+
     public $settings;
+    public $gift_wrap_enabled;
+    public $gift_wrap_cost;
+    public $product_gift_wrap_message;
 	/**
 	 * Hook us in :)
 	 *
@@ -46,20 +50,11 @@ class WC_Product_Gift_Wrap {
 	 * @return void
 	 */
 	public function __construct() {
-		$default_message                 = sprintf( __( 'Gift wrap this item for %s?', 'woocommerce-product-gift-wrap' ), '{price}' );
-		$this->gift_wrap_enabled         = get_option( 'product_gift_wrap_enabled' ) == 'yes' ? true : false;
+		$this->gift_wrap_enabled         = get_option( 'product_gift_wrap_enabled' );
 		$this->gift_wrap_cost            = get_option( 'product_gift_wrap_cost', 0 );
 		$this->product_gift_wrap_message = get_option( 'product_gift_wrap_message' );
 
-		if ( ! $this->product_gift_wrap_message ) {
-			$this->product_gift_wrap_message = $default_message;
-		}
-
-		add_option( 'product_gift_wrap_enabled', 'no' );
-		add_option( 'product_gift_wrap_cost', '0' );
-		add_option( 'product_gift_wrap_message', $default_message );
-
-         // i18n
+        // Load plugin text domain
         add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
 		// Display on the front end
@@ -94,6 +89,12 @@ class WC_Product_Gift_Wrap {
 
 		return self::$instance;
 	}
+
+    public static function install() {
+        add_option( 'product_gift_wrap_enabled', false );
+		add_option( 'product_gift_wrap_cost', '0' );
+		add_option( 'product_gift_wrap_message', sprintf( __( 'Gift wrap this item for %s?', 'woocommerce-product-gift-wrap' ), '{price}' ) );
+    }
 
     /**
      * Load the plugin text domain for translation.
@@ -358,6 +359,8 @@ class WC_Product_Gift_Wrap {
 		woocommerce_update_options( $this->admin_settings() );
 	}
 }
+
+register_activation_hook( __FILE__, array( 'WC_Product_Gift_Wrap', 'install' ) );
 
 add_action( 'plugins_loaded', array( 'WC_Product_Gift_Wrap', 'get_instance' ) );
 
