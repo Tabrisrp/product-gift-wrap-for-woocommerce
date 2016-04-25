@@ -2,84 +2,89 @@
 # This file is distributed under the same license as the WooCommerce Product Gift Wrap package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Product Gift Wrap Reloaded 1.1.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/woocommerce-product-gift-wrap\n"
-"POT-Creation-Date: 2015-04-22 18:26+0100\n"
-"PO-Revision-Date: 2015-04-22 18:27+0100\n"
+"Project-Id-Version: WooCommerce Product Gift Wrap 1.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/woocommerce-product-gift-"
+"wrap\n"
+"POT-Creation-Date: 2016-04-25 19:32-0500\n"
+"PO-Revision-Date: 2016-04-25 19:33-0500\n"
 "Last-Translator: Rémy Perona <remperona@gmail.com>\n"
 "Language-Team: Remy Perona <remperona@gmail.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.1\n"
+"X-Generator: Poedit 1.6.4\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded\n"
+"X-Poedit-SearchPath-0: /Users/Yui/Sites/wordpress/wp-content/plugins/"
+"woocommerce-product-gift-wrap\n"
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:96
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:96
 #, php-format
 msgid "Gift wrap this item for %s?"
 msgstr "Emballage cadeau pour %s ?"
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:134
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:134
 msgid "free"
 msgstr "Gratuit"
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:202
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:242
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:202
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:243
 msgid "Gift Wrapped"
 msgstr "Emballage cadeau"
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:203
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:204
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:242
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:203
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:204
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:243
 msgid "Yes"
 msgstr "Oui"
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:267
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:268
 msgid "Gift Wrappable"
 msgstr "Emballage cadeau disponible"
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:268
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:269
 msgid "Enable this option if the customer can choose gift wrapping."
 msgstr "Activer cette option si le client peut choisir l'emballage cadeau."
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:273
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:274
 msgid "Gift Wrap Cost"
 msgstr "Prix de l'emballage cadeau"
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:276
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:277
 msgid "Override the default cost by inputting a cost here."
 msgstr "Remplacer la valeur par défaut en entrant un prix ici."
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:318
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:319
 msgid "Gift Wrapping Enabled by Default?"
 msgstr "Emballage cadeau activé par défaut ?"
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:319
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:320
 msgid "Enable this to allow gift wrapping for products by default."
-msgstr "Activer cette option pour afficher l'option d'emballage cadeau pour tous les produits."
+msgstr ""
+"Activer cette option pour afficher l'option d'emballage cadeau pour tous les "
+"produits."
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:324
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:325
 msgid "Default Gift Wrap Cost"
 msgstr "Prix par défaut de l'emballage cadeau"
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:325
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:326
 msgid "The cost of gift wrap unless overridden per-product."
 msgstr "Le prix de l'emballage cadeau, sauf si défini sur le produit."
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:331
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:332
 msgid "Gift Wrap Message"
 msgstr "Message pour l'emballage cadeau"
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:333
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:334
 msgid "Note: <code>{price}</code> will be replaced with the gift wrap cost."
-msgstr "Note : <code>{price}</code> sera remplacé par le prix de l'emballage cadeau."
+msgstr ""
+"Note : <code>{price}</code> sera remplacé par le prix de l'emballage cadeau."
 
-#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap-reloaded/woocommerce-product-gift-wrap.php:335
+#: /Users/Yui/Sites/wordpress/wp-content/plugins/woocommerce-product-gift-wrap/woocommerce-product-gift-wrap.php:336
 msgid "Label shown to the user on the frontend."
 msgstr "Le label du champ à afficher au client sur le site."
 
@@ -89,8 +94,12 @@ msgstr "Le label du champ à afficher au client sur le site."
 #~ msgid "https://github.com/mikejolley/woocommerce-product-gift-wrap"
 #~ msgstr "https://github.com/mikejolley/woocommerce-product-gift-wrap"
 
-#~ msgid "Add an option to your products to enable gift wrapping. Optionally charge a fee."
-#~ msgstr "Ajoute une option pour l'emballage cadeau de vos produits. Possibilité de définir un coût."
+#~ msgid ""
+#~ "Add an option to your products to enable gift wrapping. Optionally charge "
+#~ "a fee."
+#~ msgstr ""
+#~ "Ajoute une option pour l'emballage cadeau de vos produits. Possibilité de "
+#~ "définir un coût."
 
 #~ msgid "Mike Jolley"
 #~ msgstr "Mike Jolley"

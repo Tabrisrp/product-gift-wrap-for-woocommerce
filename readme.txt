@@ -1,10 +1,10 @@
 === WooCommerce Product Gift Wrap Reloaded ===
 Contributors: tabrisrp
-Donate link: 
+Donate link: https://www.paypal.me/remp
 Tags: woocommerce, product, gift wrap
 Requires at least: 3.5
-Tested up to: 4.2
-Stable tag: 1.1.0
+Tested up to: 4.5
+Stable tag: 1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -28,9 +28,12 @@ If the customer adds gift wrap, it is shown in cart + orders, and adds your defi
 
 == Screenshots ==
 
-1. The customisable gift message and checkbox
+1. The customizable gift message and checkbox
 
 == Changelog ==
+
+= 1.2 =
+* WC 2.5 & WP 4.5 compatibility
 
 = 1.1.0 =
 * WC 2.2 compatibility.

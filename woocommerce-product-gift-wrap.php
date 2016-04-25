@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: WooCommerce Product Gift Wrap Reloaded
-Plugin URI: https://github.com/Tabrisrp/woocommerce-product-gift-wrap-reloaded
+Plugin URI: https://github.com/Tabrisrp/woocommerce-product-gift-wrap
 Description: Add an option to your products to enable gift wrapping. Optionally charge a fee.
-Version: 1.1.0
+Version: 1.2
 Author: Rémy Perona
 Author URI: http://remyperona.fr
 Requires at least: 3.5
-Tested up to: 4.2
+Tested up to: 4.5
 Text Domain: woocommerce-product-gift-wrap
 Domain Path: /languages/
 License: GPLv2 or later
@@ -30,7 +30,7 @@ class WC_Product_Gift_Wrap {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.1.0';
+	const VERSION = '1.2';
 
 	/**
 	 * Instance of this class.
@@ -197,12 +197,13 @@ class WC_Product_Gift_Wrap {
 	 * @return void
 	 */
 	public function get_item_data( $item_data, $cart_item ) {
-		if ( ! empty( $cart_item['gift_wrap'] ) )
+		if ( ! empty( $cart_item['gift_wrap'] ) ) {
 			$item_data[] = array(
 				'name'    => __( 'Gift Wrapped', 'woocommerce-product-gift-wrap' ),
 				'value'   => __( 'Yes', 'woocommerce-product-gift-wrap' ),
 				'display' => __( 'Yes', 'woocommerce-product-gift-wrap' )
 			);
+        }
 
 		return $item_data;
 	}
