@@ -1,14 +1,14 @@
 <?php
 /*
-Plugin Name: WooCommerce Product Gift Wrap Reloaded
-Plugin URI: https://github.com/Tabrisrp/woocommerce-product-gift-wrap
+Plugin Name: Product Gift Wrap for WooCommerce
+Plugin URI: https://github.com/Tabrisrp/product-gift-wrap-for-woocommerce
 Description: Add an option to your products to enable gift wrapping. Optionally charge a fee.
-Version: 1.2
+Version: 1.3
 Author: Rémy Perona
 Author URI: http://remyperona.fr
 Requires at least: 3.5
 Tested up to: 4.5
-Text Domain: woocommerce-product-gift-wrap
+Text Domain: product-gift-wrap-for-woocommerce
 Domain Path: /languages/
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * WC_Product_Gift_wrap main class.
  */
-if ( !class_exists( 'WC_Product_Gift_Wrap' ) ) :
+if ( ! class_exists( 'WC_Product_Gift_Wrap' ) ) :
 
 class WC_Product_Gift_Wrap {
     /**
@@ -30,7 +30,7 @@ class WC_Product_Gift_Wrap {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.2';
+	const VERSION = '1.3';
 
 	/**
 	 * Instance of this class.
@@ -93,17 +93,55 @@ class WC_Product_Gift_Wrap {
     public static function install() {
         add_option( 'product_gift_wrap_enabled', false );
 		add_option( 'product_gift_wrap_cost', '0' );
-		add_option( 'product_gift_wrap_message', sprintf( __( 'Gift wrap this item for %s?', 'woocommerce-product-gift-wrap' ), '{price}' ) );
+		add_option( 'product_gift_wrap_message', sprintf( __( 'Gift wrap this item for %s?', 'product-gift-wrap-for-woocommerce' ), '{price}' ) );
     }
 
     /**
      * Load the plugin text domain for translation.
      */
     public function load_plugin_textdomain() {
-        $locale = apply_filters( 'plugin_locale', get_locale(), 'woocommerce-product-gift-wrap' );
+        $locale = apply_filters( 'plugin_locale', get_locale(), 'product-gift-wrap-for-woocommerce' );
 
-		load_textdomain( 'woocommerce-product-gift-wrap', trailingslashit( WP_LANG_DIR ) . 'woocommerce-product-gift-wrap/woocommerce-product-gift-wrap-' . $locale . '.mo' );
-        load_plugin_textdomain( 'woocommerce-product-gift-wrap', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_textdomain( 'product-gift-wrap-for-woocommerce', trailingslashit( WP_LANG_DIR ) . 'product-gift-wrap-for-woocommerce/product-gift-wrap-for-woocommerce-' . $locale . '.mo' );
+        load_plugin_textdomain( 'product-gift-wrap-for-woocommerce', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+    }
+
+    /**
+     * Basic integration with WooCommerce Currency Switcher, developed by Aelia
+     * (http://aelia.co). This method can be used by any 3rd party plugin to
+     * return prices converted to the active currency.
+     *
+     * @param double price The source price.
+     * @param string to_currency The target currency. If empty, the active currency
+     * will be taken.
+     * @param string from_currency The source currency. If empty, WooCommerce base
+     * currency will be taken.
+     * @return double The price converted from source to destination currency.
+     * @author Aelia <support@aelia.co>
+     * @link http://aelia.co
+     */
+    protected function get_price_in_currency( $price, $to_currency = null, $from_currency = null ) {
+      // If source currency is not specified, take the shop's base currency as a default
+      if( empty( $from_currency ) ) {
+        $from_currency = get_option( 'woocommerce_currency' );
+      }
+      // If target currency is not specified, take the active currency as a default.
+      // The Currency Switcher sets this currency automatically, based on the context. Other
+      // plugins can also override it, based on their own custom criteria, by implementing
+      // a filter for the "woocommerce_currency" hook.
+      //
+      // For example, a subscription plugin may decide that the active currency is the one
+      // taken from a previous subscription, because it's processing a renewal, and such
+      // renewal should keep the original prices, in the original currency.
+      if( empty( $to_currency ) ) {
+        $to_currency = get_woocommerce_currency();
+      }
+    
+      // Call the currency conversion filter. Using a filter allows for loose coupling. If the
+      // Aelia Currency Switcher is not installed, the filter call will return the original
+      // amount, without any conversion being performed. Your plugin won't even need to know if
+      // the multi-currency plugin is installed or active
+      return apply_filters( 'wc_aelia_cs_convert', $price, $from_currency, $to_currency );
     }
 
 	/**
@@ -131,13 +169,13 @@ class WC_Product_Gift_Wrap {
 				$cost = $this->gift_wrap_cost;
 			}
 
-			$price_text = $cost > 0 ? wc_price( $cost ) : __( 'free', 'woocommerce-product-gift-wrap' );
+			$price_text = $cost > 0 ? wc_price( $this->get_price_in_currency( $cost ) ) : __( 'free', 'product-gift-wrap-for-woocommerce' );
 
 			wc_get_template( 'gift-wrap.php', array(
 				'product_gift_wrap_message' => $this->product_gift_wrap_message,
-				'current_value'                  => $current_value,
+				'current_value'             => $current_value,
 				'price_text'                => $price_text
-			), 'woocommerce-product-gift-wrap', untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/templates/' );
+			), 'product-gift-wrap-for-woocommerce', untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/templates/' );
 		}
 	}
 
@@ -182,7 +220,7 @@ class WC_Product_Gift_Wrap {
 				$cost = $this->gift_wrap_cost;
 			}
 
-			$cart_item['data']->adjust_price( $cost );
+			$cart_item['data']->adjust_price( $this->get_price_in_currency( $cost ) );
 		}
 
 		return $cart_item;
@@ -199,9 +237,9 @@ class WC_Product_Gift_Wrap {
 	public function get_item_data( $item_data, $cart_item ) {
 		if ( ! empty( $cart_item['gift_wrap'] ) ) {
 			$item_data[] = array(
-				'name'    => __( 'Gift Wrapped', 'woocommerce-product-gift-wrap' ),
-				'value'   => __( 'Yes', 'woocommerce-product-gift-wrap' ),
-				'display' => __( 'Yes', 'woocommerce-product-gift-wrap' )
+				'name'    => __( 'Gift Wrapped', 'product-gift-wrap-for-woocommerce' ),
+				'value'   => __( 'Yes', 'product-gift-wrap-for-woocommerce' ),
+				'display' => __( 'Yes', 'product-gift-wrap-for-woocommerce' )
 			);
         }
 
@@ -224,7 +262,7 @@ class WC_Product_Gift_Wrap {
 				$cost = $this->gift_wrap_cost;
 			}
 
-			$cart_item['data']->adjust_price( $cost );
+			$cart_item['data']->adjust_price( $this->get_price_in_currency( $cost ) );
 		}
 
 		return $cart_item;
@@ -240,7 +278,7 @@ class WC_Product_Gift_Wrap {
 	 */
 	public function add_order_item_meta( $item_id, $cart_item ) {
 		if ( ! empty( $cart_item['gift_wrap'] ) ) {
-			wc_add_order_item_meta( $item_id, __( 'Gift Wrapped', 'woocommerce-product-gift-wrap' ), __( 'Yes', 'woocommerce-product-gift-wrap' ) );
+			wc_add_order_item_meta( $item_id, __( 'Gift Wrapped', 'product-gift-wrap-for-woocommerce' ), __( 'Yes', 'product-gift-wrap-for-woocommerce' ) );
 		}
 	}
 
@@ -265,16 +303,16 @@ class WC_Product_Gift_Wrap {
 				'id'            => '_is_gift_wrappable',
 				'wrapper_class' => '',
 				'value'         => $is_wrappable,
-				'label'         => __( 'Gift Wrappable', 'woocommerce-product-gift-wrap' ),
-				'description'   => __( 'Enable this option if the customer can choose gift wrapping.', 'woocommerce-product-gift-wrap' ),
+				'label'         => __( 'Gift Wrappable', 'product-gift-wrap-for-woocommerce' ),
+				'description'   => __( 'Enable this option if the customer can choose gift wrapping.', 'product-gift-wrap-for-woocommerce' ),
 			) );
 
 		woocommerce_wp_text_input( array(
 				'id'          => '_gift_wrap_cost',
-				'label'       => __( 'Gift Wrap Cost', 'woocommerce-product-gift-wrap' ),
+				'label'       => __( 'Gift Wrap Cost', 'product-gift-wrap-for-woocommerce' ),
 				'placeholder' => $this->gift_wrap_cost,
 				'desc_tip'    => true,
-				'description' => __( 'Override the default cost by inputting a cost here.', 'woocommerce-product-gift-wrap' ),
+				'description' => __( 'Override the default cost by inputting a cost here.', 'product-gift-wrap-for-woocommerce' ),
 			) );
 
 		wc_enqueue_js( "
@@ -316,24 +354,24 @@ class WC_Product_Gift_Wrap {
         // Init settings
 		$this->settings = array(
 			array(
-				'name' 		=> __( 'Gift Wrapping Enabled by Default?', 'woocommerce-product-gift-wrap' ),
-				'desc' 		=> __( 'Enable this to allow gift wrapping for products by default.', 'woocommerce-product-gift-wrap' ),
+				'name' 		=> __( 'Gift Wrapping Enabled by Default?', 'product-gift-wrap-for-woocommerce' ),
+				'desc' 		=> __( 'Enable this to allow gift wrapping for products by default.', 'product-gift-wrap-for-woocommerce' ),
 				'id' 		=> 'product_gift_wrap_enabled',
 				'type' 		=> 'checkbox',
 			),
 			array(
-				'name' 		=> __( 'Default Gift Wrap Cost', 'woocommerce-product-gift-wrap' ),
-				'desc' 		=> __( 'The cost of gift wrap unless overridden per-product.', 'woocommerce-product-gift-wrap' ),
+				'name' 		=> __( 'Default Gift Wrap Cost', 'product-gift-wrap-for-woocommerce' ),
+				'desc' 		=> __( 'The cost of gift wrap unless overridden per-product.', 'product-gift-wrap-for-woocommerce' ),
 				'id' 		=> 'product_gift_wrap_cost',
 				'type' 		=> 'text',
 				'desc_tip'  => true
 			),
 			array(
-				'name' 		=> __( 'Gift Wrap Message', 'woocommerce-product-gift-wrap' ),
+				'name' 		=> __( 'Gift Wrap Message', 'product-gift-wrap-for-woocommerce' ),
 				'id' 		=> 'product_gift_wrap_message',
-				'desc' 		=> __( 'Note: <code>{price}</code> will be replaced with the gift wrap cost.', 'woocommerce-product-gift-wrap' ),
+				'desc' 		=> __( 'Note: <code>{price}</code> will be replaced with the gift wrap cost.', 'product-gift-wrap-for-woocommerce' ),
 				'type' 		=> 'text',
-				'desc_tip'  => __( 'Label shown to the user on the frontend.', 'woocommerce-product-gift-wrap' )
+				'desc_tip'  => __( 'Label shown to the user on the frontend.', 'product-gift-wrap-for-woocommerce' )
 			),
 		);
 

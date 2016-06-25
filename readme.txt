@@ -1,14 +1,14 @@
-=== WooCommerce Product Gift Wrap Reloaded ===
+=== Product Gift Wrap for WooCoomerce ===
 Contributors: tabrisrp
 Donate link: https://www.paypal.me/remp
 Tags: woocommerce, product, gift wrap
 Requires at least: 3.5
 Tested up to: 4.5
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Add an option to your WooCommerce products to enable gift wrapping. Optionally charge a fee. For WooCommerce 2.0 +
+Add an option to your WooCommerce products to enable gift wrapping. Optionally charge a fee. For WooCommerce 2.2+
 
 == Description ==
 
@@ -18,7 +18,7 @@ WooCommerce > Settings lets you set up the default gift-wrappable status per-pro
 
 If the customer adds gift wrap, it is shown in cart + orders, and adds your defined cost to the item cost too.
 
-
+The plugin is compatible with Aelia Currency Switcher and WooCommerce Currency Converter from WooThemes.
 
 == Installation ==
 
@@ -31,6 +31,10 @@ If the customer adds gift wrap, it is shown in cart + orders, and adds your defi
 1. The customizable gift message and checkbox
 
 == Changelog ==
+
+= 1.3 =
+* Renamed to prevent any issue with trademarks
+* Compatibility with Aelia Currency Switcher
 
 = 1.2 =
 * WC 2.5 & WP 4.5 compatibility
