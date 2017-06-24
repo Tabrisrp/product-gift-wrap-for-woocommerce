@@ -3,8 +3,8 @@ Contributors: tabrisrp
 Donate link: https://www.paypal.me/remp
 Tags: woocommerce, product, gift wrap
 Requires at least: 3.5
-Tested up to: 4.5
-Stable tag: 1.3
+Tested up to: 4.8
+Stable tag: 1.3.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -31,6 +31,9 @@ The plugin is compatible with Aelia Currency Switcher and WooCommerce Currency C
 1. The customizable gift message and checkbox
 
 == Changelog ==
+= 1.3.1 =
+* WooCommerce 3.0 compatibility
+* Plugin now follows WordPress coding standards
 
 = 1.3 =
 * Renamed to prevent any issue with trademarks
